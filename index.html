@@ -1311,32 +1311,27 @@
     <div class="contact-left">
       <h2>Contact</h2>
       <h3>Travaillons <span class="highlight">ensemble.</span></h3>
-      <p>Disponible pour des stages, alternances ou simplement pour échanger sur un projet.<br>N’hésitez pas à me contacter.</p>
+      <p>Disponible pour des stages, alternances ou simplement pour échanger sur un projet.<br>N'hésitez pas à me contacter.</p>
       
       <div class="email-info">
         <span>✉️</span>
-        <a href="mailto:enes.perakazan.40@gmail.com">enes.parakazan.4@gmail.com</a>
+        <a href="mailto:enes.parakazan.4@gmail.com">enes.parakazan.4@gmail.com</a>
       </div>
     </div>
 
     <div class="contact-right">
-<form id="contact-form">
-<input type="hidden" name="access_key" value="8a9f59b4-db30-49c6-b977-93151b4ba77a">
+      <form action="https://api.web3forms.com/submit" method="POST" id="contact-form">
+        <input type="hidden" name="access_key" value="8a9f59b4-db30-49c6-b977-93151b4ba77a">
         <div class="form-group">
           <input type="text" name="name" placeholder="Votre nom" required>
         </div>
-
         <div class="form-group">
           <input type="email" name="email" placeholder="Votre email" required>
         </div>
-
         <div class="form-group">
           <textarea name="message" placeholder="Votre message..." rows="6" required></textarea>
         </div>
-
-        <button type="submit" class="submit-btn" id="submit-btn">
-          Envoyer le message
-        </button>
+        <button type="submit" class="submit-btn" id="submit-btn">Envoyer le message</button>
       </form>
 
       <div id="form-success" class="success-message" style="display: none;">
@@ -1345,9 +1340,8 @@
     </div>
   </div>
 </section>
-<script>
 
-// CURSOR
+<script>
   const cursor = document.getElementById('cursor');
   const ring = document.getElementById('cursorRing');
   let mx = 0, my = 0, rx = 0, ry = 0;
@@ -1366,8 +1360,7 @@
     el.addEventListener('mouseenter', () => { ring.style.transform = 'scale(1.6)'; ring.style.opacity = '0.8'; });
     el.addEventListener('mouseleave', () => { ring.style.transform = 'scale(1)'; ring.style.opacity = '0.5'; });
   });
- 
-  // INTERSECTION OBSERVER for fade-in & skill bars
+
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -1380,21 +1373,32 @@
       }
     });
   }, { threshold: 0.15 });
- 
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
- 
-  // CONTACT FORM
-  function handleSend() {
-    const inputs = document.querySelectorAll('.form-input, .form-textarea');
-    let ok = true;
-    inputs.forEach(i => { if (!i.value.trim()) ok = false; });
-    if (ok) {
-      document.getElementById('form-success').style.display = 'block';
-      inputs.forEach(i => i.value = '');
+
+  document.getElementById('contact-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const form = e.target;
+    const btn = document.getElementById('submit-btn');
+    btn.textContent = 'Envoi en cours...';
+    btn.disabled = true;
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: new FormData(form)
+      });
+      if (response.ok) {
+        document.getElementById('form-success').style.display = 'block';
+        form.reset();
+      } else {
+        alert('Erreur lors de l\'envoi. Réessaie.');
+      }
+    } catch (err) {
+      alert('Erreur réseau. Réessaie.');
     }
-  }
- 
-  // NAV active highlight on scroll
+    btn.textContent = 'Envoyer le message';
+    btn.disabled = false;
+  });
+
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-links a');
   window.addEventListener('scroll', () => {
@@ -1406,26 +1410,6 @@
       a.style.color = a.getAttribute('href') === '#' + current ? 'var(--accent)' : '';
     });
   });
-
-document.getElementById('contact-form').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    
-    const form = e.target;
-    const data = new FormData(form);
-    
-    const response = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        body: data,
-        headers: { 'Accept': 'application/json' }
-    });
-    
-    if (response.ok) {
-        document.getElementById('form-success').style.display = 'block';
-        form.reset();
-    } else {
-        alert('Erreur lors de l\'envoi. Réessaie.');
-    }
-});
 </script>
 </body>
 </html>
