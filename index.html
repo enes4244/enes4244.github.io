@@ -158,24 +158,25 @@
   /* CUSTOM CURSOR */
   .cursor {
     position: fixed;
-    width: 10px; height: 10px;
+    width: 4px; height: 4px;
     background: var(--accent);
     border-radius: 50%;
     pointer-events: none;
     z-index: 9999;
-    transition: transform 0.1s;
+    transition: transform 0.08s;
     mix-blend-mode: screen;
   }
   .cursor-ring {
     position: fixed;
-    width: 36px; height: 36px;
-    border: 1.5px solid var(--accent);
+    width: 20px; height: 20px;
+    border: 1px solid rgba(0,229,255,0.4);
     border-radius: 50%;
     pointer-events: none;
     z-index: 9998;
-    transition: all 0.18s ease;
-    opacity: 0.5;
+    transition: all 0.15s ease;
+    opacity: 0.35;
   }
+
 
   /* SCROLLBAR */
   ::-webkit-scrollbar { width: 4px; }
@@ -1155,7 +1156,7 @@
       Option SIN — Systèmes d'Information et Numérique
     </div>
     <div class="modules-grid">
-      <div class="module-item">Programmation (Python, C, Arduino)</div>
+      <div class="module-item">Programmation (Python, Arduino)</div>
       <div class="module-item">Réseaux & protocoles de communication</div>
       <div class="module-item">Électronique numérique</div>
       <div class="module-item">Traitement du signal</div>
