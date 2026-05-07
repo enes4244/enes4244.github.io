@@ -7,6 +7,60 @@
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
  
+/* CERTIFICATIONS */
+.certifications { background: var(--bg2); }
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+.cert-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s, transform 0.3s;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.cert-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s;
+}
+.cert-card:hover { transform: translateY(-4px); }
+.cert-card:hover::before { transform: scaleX(1); }
+.cert-card.color-cyan { border-color: rgba(0,229,255,0.15); }
+.cert-card.color-cyan::before { background: linear-gradient(90deg, var(--accent), transparent); }
+.cert-card.color-cyan:hover { border-color: rgba(0,229,255,0.4); }
+.cert-card.color-purple { border-color: rgba(124,58,237,0.15); }
+.cert-card.color-purple::before { background: linear-gradient(90deg, var(--accent2), transparent); }
+.cert-card.color-purple:hover { border-color: rgba(124,58,237,0.4); }
+.cert-card.color-orange { border-color: rgba(249,115,22,0.15); }
+.cert-card.color-orange::before { background: linear-gradient(90deg, var(--accent3), transparent); }
+.cert-card.color-orange:hover { border-color: rgba(249,115,22,0.4); }
+.cert-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; }
+.cert-icon { font-size: 1.8rem; flex-shrink: 0; }
+.cert-status {
+  font-size: 0.58rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.7rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.cert-status.obtained { border: 1px solid var(--accent); color: var(--accent); background: rgba(0,229,255,0.06); }
+.cert-status.in-progress { border: 1px solid var(--accent3); color: var(--accent3); background: rgba(249,115,22,0.06); }
+.cert-org { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text2); margin-bottom: 0.3rem; }
+.cert-name { font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 700; line-height: 1.2; margin-bottom: 0.75rem; }
+.cert-desc { font-size: 0.78rem; line-height: 1.75; color: var(--text2); flex: 1; }
+.cert-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; padding-top: 1rem; border-top: 1px solid var(--border); }
+.cert-tag { font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.25rem 0.65rem; background: rgba(255,255,255,0.04); border: 1px solid var(--border); color: var(--text2); }
+@media (max-width: 900px) { .cert-grid { grid-template-columns: 1fr; } }
 
  .contact-section {
   padding: 100px 5%;
@@ -859,6 +913,7 @@
     <li><a href="#skills">Compétences</a></li>
     <li><a href="#veille">Veille</a></li>
     <li><a href="#formation">Formation</a></li>
+    <li><a href="#certifications">Certifications</a></li>
     <li><a href="#stage">Stage</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -1165,6 +1220,90 @@
     </div> 
   </div>
 </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section class="certifications" id="certifications">
+  <div class="section-header">
+    <span class="section-num">05</span>
+    <h2 class="section-title fade-in">Certifications</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="cert-grid">
+
+    <div class="cert-card color-cyan fade-in">
+      <div class="cert-header">
+        <span class="cert-icon">🛡️</span>
+        <span class="cert-status obtained">Obtenu</span>
+      </div>
+      <div>
+        <div class="cert-org">ANSSI · CNIL</div>
+        <div class="cert-name">SecNumAcadémie — RGPD & Sécurité numérique</div>
+      </div>
+      <p class="cert-desc">Formation en ligne délivrée par l'ANSSI couvrant les fondamentaux de la sécurité des systèmes d'information. Inclut la sensibilisation au RGPD et aux obligations légales de protection des données personnelles portées par la CNIL.</p>
+      <div class="cert-tags">
+        <span class="cert-tag">ANSSI</span>
+        <span class="cert-tag">RGPD</span>
+        <span class="cert-tag">CNIL</span>
+        <span class="cert-tag">Sécurité SI</span>
+      </div>
+    </div>
+
+    <div class="cert-card color-purple fade-in">
+      <div class="cert-header">
+        <span class="cert-icon">⚔️</span>
+        <span class="cert-status obtained">Obtenu</span>
+      </div>
+      <div>
+        <div class="cert-org">Root-Me</div>
+        <div class="cert-name">Root-Me Pro — Ethical Hacking</div>
+      </div>
+      <p class="cert-desc">Plateforme de challenges de cybersécurité offensive et défensive. Résolution de challenges réels couvrant la cryptographie, l'exploitation web, le forensics et la sécurité réseau. Niveau Pro validé par des épreuves pratiques.</p>
+      <div class="cert-tags">
+        <span class="cert-tag">CTF</span>
+        <span class="cert-tag">Web exploitation</span>
+        <span class="cert-tag">Cryptographie</span>
+        <span class="cert-tag">Forensics</span>
+      </div>
+    </div>
+
+    <div class="cert-card color-orange fade-in">
+      <div class="cert-header">
+        <span class="cert-icon">🎯</span>
+        <span class="cert-status in-progress">En cours</span>
+      </div>
+      <div>
+        <div class="cert-org">TryHackMe</div>
+        <div class="cert-name">TryHackMe — Parcours Cybersécurité</div>
+      </div>
+      <p class="cert-desc">Apprentissage pratique via des environnements virtuels guidés. Progression sur les parcours Pre-Security, SOC Level 1 et les challenges offensifs (pentesting, privilege escalation).</p>
+      <div class="cert-tags">
+        <span class="cert-tag">Pentesting</span>
+        <span class="cert-tag">Linux</span>
+        <span class="cert-tag">SOC</span>
+        <span class="cert-tag">Blue team</span>
+      </div>
+    </div>
+
+    <div class="cert-card color-cyan fade-in">
+      <div class="cert-header">
+        <span class="cert-icon">🌐</span>
+        <span class="cert-status in-progress">En cours</span>
+      </div>
+      <div>
+        <div class="cert-org">Cisco</div>
+        <div class="cert-name">Cisco CCNA — Réseaux & Commutation</div>
+      </div>
+      <p class="cert-desc">Certification internationale couvrant les fondamentaux des réseaux IP, le routage (OSPF), la commutation (VLANs, STP), la sécurité réseau. Préparation via Cisco Packet Tracer et labs physiques.</p>
+      <div class="cert-tags">
+        <span class="cert-tag">Routage IP</span>
+        <span class="cert-tag">VLAN / STP</span>
+        <span class="cert-tag">OSPF</span>
+        <span class="cert-tag">Cisco IOS</span>
+      </div>
+    </div>
+
+  </div>
 </section>
 
 <section class="stage" id="stage">
