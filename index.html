@@ -1829,6 +1829,11 @@
       a.style.color = a.getAttribute('href') === '#' + current ? 'var(--accent)' : '';
     });
   });
+
+  // E5 toggle checkboxes
+document.querySelectorAll('.e5-toggle').forEach(el => {
+  el.addEventListener('click', () => el.classList.toggle('checked'));
+});
 </script>
 </body>
 </html>
