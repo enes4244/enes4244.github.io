@@ -732,6 +732,82 @@
     border-top: 1px solid var(--border);
   }
 
+  /* MISSION CARDS */
+  .mission-card {
+    border: 1px solid var(--border);
+    background: var(--card);
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .mission-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, var(--accent2), var(--accent));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s;
+  }
+  .mission-card:hover { border-color: rgba(0,229,255,0.25); transform: translateY(-3px); }
+  .mission-card:hover::before { transform: scaleX(1); }
+
+  .mission-header {
+    display: flex; align-items: flex-start; gap: 1rem;
+    margin-bottom: 1.25rem;
+  }
+  .mission-icon {
+    font-size: 1.8rem;
+    flex-shrink: 0;
+  }
+  .mission-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    margin-bottom: 0.2rem;
+  }
+  .mission-tag {
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .mission-desc {
+    font-size: 0.8rem;
+    line-height: 1.8;
+    color: var(--text2);
+    margin-bottom: 1.25rem;
+  }
+
+  .mission-list {
+    display: flex; flex-direction: column; gap: 0.6rem;
+    margin-bottom: 1.25rem;
+  }
+  .mission-list li {
+    display: flex; align-items: flex-start; gap: 0.75rem;
+    font-size: 0.78rem;
+    color: var(--text2);
+    line-height: 1.6;
+  }
+  .mission-list li::before {
+    content: '→';
+    color: var(--accent);
+    font-size: 0.7rem;
+    margin-top: 0.22rem;
+    flex-shrink: 0;
+  }
+
+  .mission-tech {
+    display: flex; flex-wrap: wrap; gap: 0.5rem;
+    margin-top: 1.25rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.7rem;
+    color: var(--text2);
+  }
+
   /* CONTACT */
   .contact { background: var(--bg2); }
   .contact-inner {
@@ -1638,102 +1714,148 @@
     <!-- CONTENT -->
     <div class="stage-content">
 
-      <!-- MISSION -->
-      <div class="stage-block fade-in">
-        <div class="stage-block-header">
-          <div class="stage-block-icon">◈</div>
+      <div class="mission-card fade-in">
+        <div class="mission-header">
+          <span class="mission-icon">◆</span>
           <div>
-            <div class="stage-block-title">Mission 1ère semaine </div>
-            <div class="stage-block-sub">Administration & Support</div>
+            <h3 class="mission-title">Semaine 1</h3>
+            <span class="mission-tag">SEMAINE 1 · DU 18/05 AU 22/05</span>
           </div>
         </div>
-        <p class="stage-desc">
-          Intégré à l'équipe technique, j'ai participé à la gestion quotidienne du parc informatique et à l'administration des systèmes et réseaux de l'entreprise. Mon rôle couvrait aussi bien le support utilisateurs que la maintenance préventive de l'infrastructure.
-        </p>
-        <div class="accomplissement-list">
-          <div class="accomplissement-item">Gestion et suivi du parc informatique (inventaire, mise à jour, remplacement de matériel)</div>
-          <div class="accomplissement-item">Support technique de niveau 1 et 2 auprès des utilisateurs internes</div>
-          <div class="accomplissement-item">Administration quotidienne des postes Windows en domaine Active Directory</div>
-          <div class="accomplissement-item">Participation aux réunions techniques et rédaction de comptes rendus d'intervention</div>
-        </div>
-        <div class="stage-techs-used">
-          <span class="tech-pill">Windows 10/11</span>
-          <span class="tech-pill">Active Directory</span>
-          <span class="tech-pill">GLPI</span>
-          <span class="tech-pill">TeamViewer</span>
-        </div>
+        <p class="mission-desc">Description de la semaine 1 — à compléter après le stage.</p>
+        <ul class="mission-list">
+          <li>Tâche / mission réalisée</li>
+          <li>Tâche / mission réalisée</li>
+          <li>Tâche / mission réalisée</li>
+          <li>Tâche / mission réalisée</li>
+        </ul>
+        <div class="mission-tech">Outil · Outil · Outil</div>
       </div>
 
-      <!-- PROJET 1 -->
-      <div class="stage-block fade-in">
-        <div class="stage-block-header">
-          <div class="stage-block-icon">◇</div>
+      <div class="mission-card fade-in">
+        <div class="mission-header">
+          <span class="mission-icon">◆</span>
           <div>
-            <div class="stage-block-title">Mise en place d'un serveur de sauvegarde</div>
-            <div class="stage-block-sub">Infrastructure · Semaine 2–3</div>
+            <h3 class="mission-title">Semaine 2</h3>
+            <span class="mission-tag">SEMAINE 2 · DU 25/05 AU 29/05</span>
           </div>
         </div>
-        <p class="stage-desc">
-          Déploiement et configuration d'un serveur de sauvegarde Debian pour automatiser les sauvegardes des données critiques de l'entreprise. Mise en œuvre d'une stratégie 3-2-1 avec rétention hebdomadaire.
-        </p>
-        <div class="accomplissement-list">
-          <div class="accomplissement-item">Installation et configuration d'un serveur Debian avec rsync et cron pour les sauvegardes automatiques</div>
-          <div class="accomplissement-item">Rédaction d'un script Bash de supervision avec alertes mail en cas d'échec</div>
-          <div class="accomplissement-item">Test de restauration validé sur un poste de travail simulant une panne disque</div>
-          <div class="accomplissement-item">Documentation technique complète remise au responsable informatique</div>
-        </div>
-        <div class="stage-techs-used">
-          <span class="tech-pill">Debian</span>
-          <span class="tech-pill">Bash</span>
-          <span class="tech-pill">Cron</span>
-          <span class="tech-pill">SSH</span>
-        </div>
+        <p class="mission-desc">Description de la semaine 2 — à compléter après le stage.</p>
+        <ul class="mission-list">
+          <li>Tâche / mission réalisée</li>
+          <li>Tâche / mission réalisée</li>
+          <li>Tâche / mission réalisée</li>
+          <li>Tâche / mission réalisée</li>
+        </ul>
+        <div class="mission-tech">Outil · Outil · Outil</div>
       </div>
 
-      <!-- PROJET 2 -->
-      <div class="stage-block fade-in">
-        <div class="stage-block-header">
-          <div class="stage-block-icon">◇</div>
+      <div class="mission-card fade-in">
+        <div class="mission-header">
+          <span class="mission-icon">◆</span>
           <div>
-            <div class="stage-block-title">Audit et sécurisation du réseau local</div>
-            <div class="stage-block-sub">Cybersécurité · Semaine 4-5</div>
+            <h3 class="mission-title">Semaine 3</h3>
+            <span class="mission-tag">SEMAINE 3 · DU 01/06 AU 05/06</span>
           </div>
         </div>
-        <p class="stage-desc">
-          Réalisation d'un audit de sécurité du réseau interne afin d'identifier les vulnérabilités potentielles et de proposer des améliorations concrètes. Travail réalisé en autonomie avec restitution finale à la direction.
-        </p>
-        <div class="accomplissement-list">
-          <div class="accomplissement-item">Cartographie du réseau existant via Angry IP Scanner et Nmap</div>
-          <div class="accomplissement-item">Identification de 3 équipements non référencés et d'un port ouvert non autorisé</div>
-          <div class="accomplissement-item">Mise à jour des règles firewall et segmentation d'un VLAN invité</div>
-          <div class="accomplissement-item">Rédaction d'un rapport d'audit avec recommandations priorisées</div>
-        </div>
-        <div class="stage-techs-used">
-          <span class="tech-pill">Nmap</span>
-          <span class="tech-pill">Wireshark</span>
-          <span class="tech-pill">pfSense</span>
-          <span class="tech-pill">VLAN</span>
-        </div>
+        <p class="mission-desc">Description de la semaine 3 — à compléter après le stage.</p>
+        <ul class="mission-list">
+          <li>Tâche / mission réalisée</li>
+          <li>Tâche / mission réalisée</li>
+          <li>Tâche / mission réalisée</li>
+          <li>Tâche / mission réalisée</li>
+        </ul>
+        <div class="mission-tech">Outil · Outil · Outil</div>
       </div>
 
-      <!-- BILAN -->
-      <div class="stage-block fade-in" style="border-color: rgba(0,229,255,0.15); background: rgba(0,229,255,0.03);">
-        <div class="stage-block-header">
-          <div class="stage-block-icon" style="border-color: var(--accent); color: var(--accent);">★</div>
+      <div class="mission-card fade-in">
+        <div class="mission-header">
+          <span class="mission-icon">◆</span>
           <div>
-            <div class="stage-block-title">Bilan & Compétences acquises</div>
-            <div class="stage-block-sub">Retour d'expérience</div>
+            <h3 class="mission-title">Semaine 4</h3>
+            <span class="mission-tag">SEMAINE 4 · DU 08/06 AU 12/06</span>
           </div>
         </div>
-        <p class="stage-desc">
-          Ce stage m'a permis de confronter mes connaissances théoriques à un environnement professionnel réel. J'ai gagné en autonomie, appris à prioriser les tâches et à communiquer efficacement avec des utilisateurs non techniques.
-        </p>
-        <div class="accomplissement-list">
-          <div class="accomplissement-item">Renforcement des compétences en administration Linux et Windows Server en contexte réel</div>
-          <div class="accomplissement-item">Expérience concrète en gestion d'incidents et ticketing (GLPI)</div>
-          <div class="accomplissement-item">Développement de l'autonomie et de la rigueur dans la documentation technique</div>
-          <div class="accomplissement-item">Validation des acquis du BTS SIO SISR sur le terrain</div>
+        <p class="mission-desc">Description de la semaine 4 — à compléter après le stage.</p>
+        <ul class="mission-list">
+          <li>Tâche / mission réalisée</li>
+          <li>Tâche / mission réalisée</li>
+          <li>Tâche / mission réalisée</li>
+          <li>Tâche / mission réalisée</li>
+        </ul>
+        <div class="mission-tech">Outil · Outil · Outil</div>
+      </div>
+
+      <div class="mission-card fade-in">
+        <div class="mission-header">
+          <span class="mission-icon">◆</span>
+          <div>
+            <h3 class="mission-title">Semaine 5</h3>
+            <span class="mission-tag">SEMAINE 5 · DU 15/06 AU 19/06</span>
+          </div>
         </div>
+        <p class="mission-desc">Description de la semaine 5 — à compléter après le stage.</p>
+        <ul class="mission-list">
+          <li>Tâche / mission réalisée</li>
+          <li>Tâche / mission réalisée</li>
+          <li>Tâche / mission réalisée</li>
+          <li>Tâche / mission réalisée</li>
+        </ul>
+        <div class="mission-tech">Outil · Outil · Outil</div>
+      </div>
+
+      <div class="mission-card fade-in">
+        <div class="mission-header">
+          <span class="mission-icon">◆</span>
+          <div>
+            <h3 class="mission-title">Semaine 6</h3>
+            <span class="mission-tag">SEMAINE 6 · DU 22/06 AU 26/06</span>
+          </div>
+        </div>
+        <p class="mission-desc">Description de la semaine 6 — à compléter après le stage.</p>
+        <ul class="mission-list">
+          <li>Tâche / mission réalisée</li>
+          <li>Tâche / mission réalisée</li>
+          <li>Tâche / mission réalisée</li>
+          <li>Tâche / mission réalisée</li>
+        </ul>
+        <div class="mission-tech">Outil · Outil · Outil</div>
+      </div>
+
+      <div class="mission-card fade-in">
+        <div class="mission-header">
+          <span class="mission-icon">◆</span>
+          <div>
+            <h3 class="mission-title">Semaine 7</h3>
+            <span class="mission-tag">SEMAINE 7 · DU 29/06 AU 03/07</span>
+          </div>
+        </div>
+        <p class="mission-desc">Description de la semaine 7 — à compléter après le stage.</p>
+        <ul class="mission-list">
+          <li>Tâche / mission réalisée</li>
+          <li>Tâche / mission réalisée</li>
+          <li>Tâche / mission réalisée</li>
+          <li>Tâche / mission réalisée</li>
+        </ul>
+        <div class="mission-tech">Outil · Outil · Outil</div>
+      </div>
+
+      <div class="mission-card fade-in">
+        <div class="mission-header">
+          <span class="mission-icon">★</span>
+          <div>
+            <h3 class="mission-title">Bilan & Compétences acquises</h3>
+            <span class="mission-tag">BILAN DE STAGE</span>
+          </div>
+        </div>
+        <p class="mission-desc">Bilan général du stage — à compléter à la fin de la période.</p>
+        <ul class="mission-list">
+          <li>Compétence / acquis professionnel</li>
+          <li>Compétence / acquis professionnel</li>
+          <li>Compétence / acquis professionnel</li>
+          <li>Compétence / acquis professionnel</li>
+        </ul>
+        <div class="mission-tech">Compétence · Compétence · Compétence</div>
       </div>
 
     </div>
