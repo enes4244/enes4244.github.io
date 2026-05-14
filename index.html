@@ -559,7 +559,23 @@
   }
   .skill-bar-fill.animated { transform: scaleX(1); }
 
- 
+  .skill-tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.4rem;
+    margin-bottom: 0.75rem;
+  }
+  .skill-tag {
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+    padding: 0.3rem 0.65rem;
+    background: rgba(0,229,255,0.06);
+    border: 1px solid rgba(0,229,255,0.2);
+    color: var(--text2);
+    border-radius: 2px;
+  }
+
   /* FORMATION */
   .formation-card {
     border: 1px solid var(--border);
@@ -1236,95 +1252,159 @@
     <div class="section-line"></div>
   </div>
   <div class="skills-grid">
-    <div class="skill-card fade-in">
-      <div class="skill-category">Infrastructure</div>
-      <div class="skill-name">Réseaux</div>
-      <div class="skill-bar-wrap">
-        <div class="skill-bar-label"><span>TCP/IP & Routage</span><span>85%</span></div>
-        <div class="skill-bar-bg"><div class="skill-bar-fill" style="--w:0.75"></div></div>
-      </div>
-      <div class="skill-bar-wrap">
-        <div class="skill-bar-label"><span>VLAN / Switch</span><span>80%</span></div>
-        <div class="skill-bar-bg"><div class="skill-bar-fill" style="--w:0.70"></div></div>
-      </div>
-      <div class="skill-bar-wrap">
-        <div class="skill-bar-label"><span>WiFi & DNS/DHCP</span><span>75%</span></div>
-        <div class="skill-bar-bg"><div class="skill-bar-fill" style="--w:0.65"></div></div>
-      </div>
-    </div>
 
-    <div class="skill-card fade-in">
-      <div class="skill-category">Systèmes</div>
-      <div class="skill-name">Administration</div>
-      <div class="skill-bar-wrap">
-        <div class="skill-bar-label"><span>Linux (Debian/Ubuntu)</span><span>80%</span></div>
-        <div class="skill-bar-bg"><div class="skill-bar-fill" style="--w:0.70"></div></div>
-      </div>
-      <div class="skill-bar-wrap">
-        <div class="skill-bar-label"><span>Windows Server</span><span>70%</span></div>
-        <div class="skill-bar-bg"><div class="skill-bar-fill" style="--w:0.65"></div></div>
-      </div>
-      <div class="skill-bar-wrap">
-        <div class="skill-bar-label"><span>Active Directory</span><span>60%</span></div>
-        <div class="skill-bar-bg"><div class="skill-bar-fill" style="--w:0.60"></div></div>
+  <div class="skill-card fade-in">
+    <div class="skill-category">Infrastructure</div>
+    <div class="skill-name">Réseaux</div>
+    <div class="skill-bar-wrap">
+      <div class="skill-bar-label"><span>TCP/IP & Routage</span></div>
+      <div class="skill-tag-list">
+        <span class="skill-tag">Cisco Packet Tracer</span>
+        <span class="skill-tag">NAT</span>
+        <span class="skill-tag">ACL</span>
+        <span class="skill-tag">Routage statique</span>
       </div>
     </div>
+    <div class="skill-bar-wrap">
+      <div class="skill-bar-label"><span>VLAN / Switch</span></div>
+      <div class="skill-tag-list">
+        <span class="skill-tag">Inter-VLAN</span>
+        <span class="skill-tag">Trunk</span>
+        <span class="skill-tag">Access</span>
+      </div>
+    </div>
+    <div class="skill-bar-wrap">
+      <div class="skill-bar-label"><span>DNS / DHCP</span></div>
+      <div class="skill-tag-list">
+        <span class="skill-tag">Windows Server</span>
+        <span class="skill-tag">pfSense</span>
+      </div>
+    </div>
+  </div>
 
-    <div class="skill-card fade-in">
-      <div class="skill-category">Sécurité</div>
-      <div class="skill-name">Cybersécurité</div>
-      <div class="skill-bar-wrap">
-        <div class="skill-bar-label"><span>Firewall / UFW</span><span>65%</span></div>
-        <div class="skill-bar-bg"><div class="skill-bar-fill" style="--w:0.65"></div></div>
-      </div>
-      <div class="skill-bar-wrap">
-        <div class="skill-bar-label"><span>VPN & SSH</span><span>60%</span></div>
-        <div class="skill-bar-bg"><div class="skill-bar-fill" style="--w:0.60"></div></div>
-      </div>
-      <div class="skill-bar-wrap">
-        <div class="skill-bar-label"><span>Audit de sécurité</span><span>60%</span></div>
-        <div class="skill-bar-bg"><div class="skill-bar-fill" style="--w:0.55"></div></div>
+  <div class="skill-card fade-in">
+    <div class="skill-category">Systèmes</div>
+    <div class="skill-name">Administration</div>
+    <div class="skill-bar-wrap">
+      <div class="skill-bar-label"><span>Linux</span></div>
+      <div class="skill-tag-list">
+        <span class="skill-tag">Debian</span>
+        <span class="skill-tag">Ubuntu</span>
+        <span class="skill-tag">Scripts Bash</span>
+        <span class="skill-tag">Shell</span>
       </div>
     </div>
+    <div class="skill-bar-wrap">
+      <div class="skill-bar-label"><span>Windows Server</span></div>
+      <div class="skill-tag-list">
+        <span class="skill-tag">Active Directory</span>
+        <span class="skill-tag">PowerShell</span>
+        <span class="skill-tag">GPO</span>
+      </div>
+    </div>
+    <div class="skill-bar-wrap">
+      <div class="skill-bar-label"><span>Gestion de parc</span></div>
+      <div class="skill-tag-list">
+        <span class="skill-tag">GLPI</span>
+        <span class="skill-tag">Tickets</span>
+        <span class="skill-tag">Inventaire</span>
+      </div>
+    </div>
+  </div>
 
-    <div class="skill-card fade-in">
-      <div class="skill-category">Virtualisation</div>
-      <div class="skill-name">Environnements</div>
-      <div class="skill-bar-wrap">
-        <div class="skill-bar-label"><span>VirtualBox / VMware</span><span>75%</span></div>
-        <div class="skill-bar-bg"><div class="skill-bar-fill" style="--w:0.70"></div></div>
+  <div class="skill-card fade-in">
+    <div class="skill-category">Sécurité</div>
+    <div class="skill-name">Cybersécurité</div>
+    <div class="skill-bar-wrap">
+      <div class="skill-bar-label"><span>Firewall & VPN</span></div>
+      <div class="skill-tag-list">
+        <span class="skill-tag">pfSense</span>
+        <span class="skill-tag">UFW</span>
+        <span class="skill-tag">IPsec</span>
+        <span class="skill-tag">SSH</span>
       </div>
     </div>
+    <div class="skill-bar-wrap">
+      <div class="skill-bar-label"><span>Audit & Analyse</span></div>
+      <div class="skill-tag-list">
+        <span class="skill-tag">Wireshark</span>
+        <span class="skill-tag">Nmap</span>
+        <span class="skill-tag">Root-Me</span>
+      </div>
+    </div>
+    <div class="skill-bar-wrap">
+      <div class="skill-bar-label"><span>Ethical Hacking</span></div>
+      <div class="skill-tag-list">
+        <span class="skill-tag">TryHackMe</span>
+        <span class="skill-tag">CTF</span>
+        <span class="skill-tag">Kali Linux</span>
+      </div>
+    </div>
+  </div>
 
-    <div class="skill-card fade-in">
-      <div class="skill-category">Développement</div>
-      <div class="skill-name">Scripting & Code</div>
-      <div class="skill-bar-wrap">
-        <div class="skill-bar-label"><span>Bash / Shell</span><span>80%</span></div>
-        <div class="skill-bar-bg"><div class="skill-bar-fill" style="--w:0.65"></div></div>
-      </div>
-      <div class="skill-bar-wrap">
-        <div class="skill-bar-label"><span>Python (bases)</span><span>80%</span></div>
-        <div class="skill-bar-bg"><div class="skill-bar-fill" style="--w:0.55"></div></div>
-      </div>
-      <div class="skill-bar-wrap">
-        <div class="skill-bar-label"><span>HTML / CSS / Javascript</span><span>80%</span></div>
-        <div class="skill-bar-bg"><div class="skill-bar-fill" style="--w:0.60"></div></div>
+  <div class="skill-card fade-in">
+    <div class="skill-category">Virtualisation</div>
+    <div class="skill-name">Environnements</div>
+    <div class="skill-bar-wrap">
+      <div class="skill-bar-label"><span>Hyperviseurs</span></div>
+      <div class="skill-tag-list">
+        <span class="skill-tag">VirtualBox</span>
+        <span class="skill-tag">VMware</span>
       </div>
     </div>
+    <div class="skill-bar-wrap">
+      <div class="skill-bar-label"><span>Réseaux virtuels</span></div>
+      <div class="skill-tag-list">
+        <span class="skill-tag">Snapshots</span>
+        <span class="skill-tag">Clonage</span>
+        <span class="skill-tag">NAT VM</span>
+      </div>
+    </div>
+  </div>
 
-    <div class="skill-card fade-in">
-      <div class="skill-category">Outils</div>
-      <div class="skill-name">Logiciels</div>
-      <div class="skill-bar-wrap">
-        <div class="skill-bar-label"><span>Wireshark</span><span>85%</span></div>
-        <div class="skill-bar-bg"><div class="skill-bar-fill" style="--w:0.65"></div></div>
-      </div>
-      <div class="skill-bar-wrap">
-        <div class="skill-bar-label"><span>Cisco Packet Tracer</span><span>85%</span></div>
-        <div class="skill-bar-bg"><div class="skill-bar-fill" style="--w:0.70"></div></div>
+  <div class="skill-card fade-in">
+    <div class="skill-category">Développement</div>
+    <div class="skill-name">Scripting & Code</div>
+    <div class="skill-bar-wrap">
+      <div class="skill-bar-label"><span>Scripting</span></div>
+      <div class="skill-tag-list">
+        <span class="skill-tag">Bash / Shell</span>
+        <span class="skill-tag">PowerShell</span>
+        <span class="skill-tag">Python</span>
       </div>
     </div>
+    <div class="skill-bar-wrap">
+      <div class="skill-bar-label"><span>Web & BDD</span></div>
+      <div class="skill-tag-list">
+        <span class="skill-tag">HTML / CSS</span>
+        <span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">PHP</span>
+        <span class="skill-tag">phpMyAdmin</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="skill-card fade-in">
+    <div class="skill-category">Outils</div>
+    <div class="skill-name">Logiciels</div>
+    <div class="skill-bar-wrap">
+      <div class="skill-bar-label"><span>Réseau & Monitoring</span></div>
+      <div class="skill-tag-list">
+        <span class="skill-tag">Wireshark</span>
+        <span class="skill-tag">Cisco Packet Tracer</span>
+        <span class="skill-tag">Zabbix</span>
+      </div>
+    </div>
+    <div class="skill-bar-wrap">
+      <div class="skill-bar-label"><span>Gestion de projet</span></div>
+      <div class="skill-tag-list">
+        <span class="skill-tag">GanttProject</span>
+        <span class="skill-tag">Git / GitHub</span>
+        <span class="skill-tag">GLPI</span>
+      </div>
+    </div>
+  </div>
+
   </div>
 </section>
 
