@@ -854,6 +854,31 @@
   .form-input:focus, .form-textarea:focus { border-color: var(--accent); }
   .form-textarea { min-height: 120px; }
 
+  .social-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+  .social-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    transition: all 0.25s;
+  }
+  .social-btn:hover {
+    background: rgba(0,229,255,0.08);
+    transform: translateY(-2px);
+  }
+
   /* FOOTER */
   footer {
     padding: 2rem 3rem;
@@ -1902,6 +1927,15 @@
         ✓ Message envoyé avec succès ! Je vous répondrai rapidement.
       </div>
     </div>
+  </div>
+
+  <div class="social-links">
+    <a class="social-btn" href="https://github.com/enes4244" target="_blank">
+      ⌥ GitHub
+    </a>
+    <a class="social-btn" href="https://www.linkedin.com/in/enes-parakazan" target="_blank">
+      ↗ LinkedIn
+    </a>
   </div>
 </section>
 
