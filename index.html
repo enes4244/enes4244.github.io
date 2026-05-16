@@ -1156,6 +1156,43 @@
     border-left: 3px solid var(--accent2);
     font-style: italic;
   }
+
+  /* SOURCES VEILLE */
+  .veille-source-link {
+    display: flex; align-items: center; gap: 1rem;
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--border);
+    background: var(--card);
+    text-decoration: none; color: var(--text);
+    transition: all 0.25s;
+  }
+  .veille-source-link:hover { border-color: var(--accent); }
+  .source-num { font-family: 'Syne', sans-serif; font-size: 0.65rem; color: var(--accent); letter-spacing: 0.1em; flex-shrink: 0; }
+  .source-title { font-size: 0.78rem; font-weight: 500; color: var(--text); margin-bottom: 0.2rem; }
+  .source-org { font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text2); }
+  .source-arrow { margin-left: auto; font-size: 0.9rem; color: var(--text2); flex-shrink: 0; transition: color 0.25s; }
+  .veille-source-link:hover .source-arrow { color: var(--accent); }
+
+  /* TIMELINE FORMATION */
+  .formation-timeline { position: relative; padding-left: 2.5rem; margin-bottom: 3rem; }
+  .formation-timeline::before {
+    content: ''; position: absolute; left: 0.6rem; top: 0.6rem; bottom: 0.6rem;
+    width: 1px; background: linear-gradient(to bottom, var(--accent), var(--accent2), var(--accent3));
+  }
+  .timeline-item { position: relative; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 1.25rem; }
+  .timeline-dot {
+    position: absolute; left: -2.5rem;
+    width: 12px; height: 12px; border-radius: 50%;
+    border: 2px solid var(--accent); background: var(--bg); flex-shrink: 0; z-index: 1;
+  }
+  .timeline-dot.dot-bts { border-color: var(--accent); background: rgba(0,229,255,0.15); }
+  .timeline-dot.dot-bac { border-color: var(--accent2); background: rgba(124,58,237,0.15); }
+  .timeline-dot.dot-stage { border-color: var(--accent3); background: rgba(249,115,22,0.15); }
+  .timeline-period { font-size: 0.62rem; letter-spacing: 0.1em; color: var(--accent); white-space: nowrap; min-width: 80px; }
+  .timeline-period.period-bac { color: var(--accent2); }
+  .timeline-period.period-stage { color: var(--accent3); }
+  .timeline-label { font-size: 0.78rem; color: var(--text); font-weight: 500; }
+  .timeline-sublabel { font-size: 0.65rem; color: var(--text2); letter-spacing: 0.05em; }
 </style>
 </head>
 <body>
@@ -1480,6 +1517,48 @@
     </div>
 
   </div>
+
+  <!-- SOURCES -->
+  <div class="veille-sources fade-in" style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border);">
+    <div style="font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.75rem;">
+      <span style="width: 20px; height: 1px; background: var(--accent); display: inline-block;"></span>
+      Sources & Références
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0.75rem;">
+      <a href="https://unit42.paloaltonetworks.com/iot-threat-report-2020/" target="_blank" class="veille-source-link">
+        <span class="source-num">01</span>
+        <div>
+          <div class="source-title">IoT Threat Report 2020</div>
+          <div class="source-org">Palo Alto Networks · Unit 42</div>
+        </div>
+        <span class="source-arrow">↗</span>
+      </a>
+      <a href="https://www.kaspersky.com/resource-center/threats/mirai-botnet" target="_blank" class="veille-source-link">
+        <span class="source-num">02</span>
+        <div>
+          <div class="source-title">Qu'est-ce que le botnet Mirai ?</div>
+          <div class="source-org">Kaspersky Resource Center</div>
+        </div>
+        <span class="source-arrow">↗</span>
+      </a>
+      <a href="https://www.anssi.fr/fr/guides-et-bonnes-pratiques/regles-et-recommandations-securite-systemes" target="_blank" class="veille-source-link">
+        <span class="source-num">03</span>
+        <div>
+          <div class="source-title">Recommandations de sécurité IoT</div>
+          <div class="source-org">ANSSI — Agence Nationale de Sécurité</div>
+        </div>
+        <span class="source-arrow">↗</span>
+      </a>
+      <a href="https://owasp.org/www-project-internet-of-things/" target="_blank" class="veille-source-link">
+        <span class="source-num">04</span>
+        <div>
+          <div class="source-title">OWASP IoT Top 10</div>
+          <div class="source-org">OWASP Foundation</div>
+        </div>
+        <span class="source-arrow">↗</span>
+      </a>
+    </div>
+  </div>
 </section>
 
 <!-- FORMATION -->
@@ -1489,6 +1568,35 @@
     <h2 class="section-title fade-in">Formation</h2>
     <div class="section-line"></div>
   </div>
+
+  <!-- TIMELINE -->
+  <div class="formation-timeline fade-in">
+    <div class="timeline-item">
+      <div class="timeline-dot dot-stage"></div>
+      <span class="timeline-period period-stage">Mai — Juil. 2026</span>
+      <div>
+        <div class="timeline-label">Stage — BURO1, Saint-Étienne</div>
+        <div class="timeline-sublabel">Administration systèmes & réseaux · 7 semaines</div>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot dot-bts"></div>
+      <span class="timeline-period">2024 — 2026</span>
+      <div>
+        <div class="timeline-label">BTS SIO option SISR</div>
+        <div class="timeline-sublabel">Lycée Georges Brassens, Rive-de-Gier (42)</div>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot dot-bac"></div>
+      <span class="timeline-period period-bac">2022 — 2024</span>
+      <div>
+        <div class="timeline-label">Bac STI2D option SIN</div>
+        <div class="timeline-sublabel">Lycée Claude Leboois, Saint-Chamond (42)</div>
+      </div>
+    </div>
+  </div>
+
   <div class="formation-card fade-in">
     <div class="formation-year">BTS</div>
     <div class="formation-content">
@@ -1602,6 +1710,9 @@
         <span class="cert-tag">Linux</span>
         <span class="cert-tag">SOC</span>
         <span class="cert-tag">Blue team</span>
+        <a href="https://tryhackme.com/p/enesz9444" target="_blank" class="cert-btn">
+          Voir mon profil TryHackMe →
+        </a>
       </div>
     </div>
 
