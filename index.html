@@ -1282,10 +1282,11 @@
   .timeline-period { min-width: 60px; font-size: 0.58rem; }
   .e5-table { font-size: 0.65rem; }
   .e5-table-wrap { display: none; }
-  .e5-mobile-cards { display: flex; flex-direction: column; gap: 1rem; }
 }
-@media (min-width: 601px) {
-  .e5-mobile-cards { display: none; }
+.e5-mobile-cards { display: none; }
+@media (max-width: 600px) {
+  .e5-table-wrap { display: none !important; }
+  .e5-mobile-cards { display: flex !important; flex-direction: column; gap: 1rem; margin-top: 1.5rem; }
 }
 .e5-mobile-card {
   border: 1px solid var(--border);
