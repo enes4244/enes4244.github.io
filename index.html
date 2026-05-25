@@ -1330,28 +1330,30 @@
   border-bottom: 1px solid var(--border);
   margin-top: 0.5rem;
 }
-
-/* LANG SWITCHER */
-.lang-btn {
-  background: none;
-  border: 1px solid var(--border);
-  color: var(--text2);
-  font-family: 'DM Mono', monospace;
-  font-size: 0.65rem;
-  letter-spacing: 0.1em;
-  padding: 0.25rem 0.6rem;
+#back-to-top {
+  display: none;
+  position: fixed;
+  bottom: 2rem;
+  right: 1.5rem;
+  z-index: 999;
+  width: 44px;
+  height: 44px;
+  background: var(--card);
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  font-size: 1.2rem;
   cursor: pointer;
-  transition: all 0.2s;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s;
 }
-.lang-btn.active { border-color: var(--accent); color: var(--accent); }
-.lang-btn:hover { border-color: var(--accent); color: var(--accent); }
-[data-lang="en"] { display: none; }
-body.lang-en [data-lang="fr"] { display: none; }
-body.lang-en [data-lang="en"] { display: revert; }
+#back-to-top:hover { background: rgba(0,229,255,0.1); }
+@media (min-width: 601px) { #back-to-top { display: none !important; } }
 </style>
 <script src="https://web3forms.com/client/script.js" async defer></script>
 </head>
 <body>
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
 <!-- CURSOR -->
 <div class="cursor" id="cursor"></div>
@@ -1361,19 +1363,15 @@ body.lang-en [data-lang="en"] { display: revert; }
 <nav>
   <a class="nav-logo" href="#">EP</a>
   <ul class="nav-links">
-    <li><a href="#about"><span data-lang="fr">Profil</span><span data-lang="en">Profile</span></a></li>
-    <li><a href="#skills"><span data-lang="fr">Compétences</span><span data-lang="en">Skills</span></a></li>
-    <li><a href="#veille"><span data-lang="fr">Veille</span><span data-lang="en">Watch</span></a></li>
-    <li><a href="#formation"><span data-lang="fr">Formation</span><span data-lang="en">Education</span></a></li>
-    <li><a href="#certifications"><span data-lang="fr">Certifications</span><span data-lang="en">Certifications</span></a></li>
-    <li><a href="#e5"><span data-lang="fr">Tableau E5</span><span data-lang="en">E5 Summary</span></a></li>
-    <li><a href="#stage"><span data-lang="fr">Stage</span><span data-lang="en">Internship</span></a></li>
-    <li><a href="#contact"><span data-lang="fr">Contact</span><span data-lang="en">Contact</span></a></li>
+    <li><a href="#about">Profil</a></li>
+    <li><a href="#skills">Compétences</a></li>
+    <li><a href="#veille">Veille</a></li>
+    <li><a href="#formation">Formation</a></li>
+    <li><a href="#certifications">Certifications</a></li>
+    <li><a href="#e5">Tableau E5</a></li>
+    <li><a href="#stage">Stage</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
-  <div style="display:flex;align-items:center;gap:0.5rem;margin-left:auto;margin-right:1rem;">
-    <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">🇫🇷 FR</button>
-    <button class="lang-btn" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
-  </div>
   <button class="hamburger" id="hamburger" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
@@ -1381,26 +1379,25 @@ body.lang-en [data-lang="en"] { display: revert; }
 
 <!-- MOBILE NAV OVERLAY -->
 <div class="mobile-nav" id="mobileNav">
-  <a href="#about" class="mobile-link"><span data-lang="fr">Profil</span><span data-lang="en">Profile</span></a>
-  <a href="#skills" class="mobile-link"><span data-lang="fr">Compétences</span><span data-lang="en">Skills</span></a>
-  <a href="#veille" class="mobile-link"><span data-lang="fr">Veille</span><span data-lang="en">Watch</span></a>
-  <a href="#formation" class="mobile-link"><span data-lang="fr">Formation</span><span data-lang="en">Education</span></a>
-  <a href="#certifications" class="mobile-link"><span data-lang="fr">Certifications</span><span data-lang="en">Certifications</span></a>
-  <a href="#e5" class="mobile-link"><span data-lang="fr">Tableau E5</span><span data-lang="en">E5 Summary</span></a>
-  <a href="#stage" class="mobile-link"><span data-lang="fr">Stage</span><span data-lang="en">Internship</span></a>
-  <a href="#contact" class="mobile-link"><span data-lang="fr">Contact</span><span data-lang="en">Contact</span></a>
+  <a href="#about" class="mobile-link">Profil</a>
+  <a href="#skills" class="mobile-link">Compétences</a>
+  <a href="#veille" class="mobile-link">Veille</a>
+  <a href="#formation" class="mobile-link">Formation</a>
+  <a href="#certifications" class="mobile-link">Certifications</a>
+  <a href="#e5" class="mobile-link">Tableau E5</a>
+  <a href="#stage" class="mobile-link">Stage</a>
+  <a href="#contact" class="mobile-link">Contact</a>
 </div>
 
 <section class="hero">
-  <div class="hero-tag"><span data-lang="fr">Portfolio — BTS SIO SISR</span><span data-lang="en">Portfolio — BTS SIO SISR</span></div>
+  <div class="hero-tag">Portfolio — BTS SIO SISR</div>
   <h1>
     <span class="name-line">Enes</span>
     <span class="accent-line">Parakazan</span>
   </h1>
 
   <p class="hero-desc">
-    <span data-lang="fr">Étudiant en <strong style="color:var(--accent)">BTS SIO option SISR</strong> au lycée Georges Brassens, Rive-de-Gier. Passionné par les réseaux, la cybersécurité et les systèmes. Je construis, je configure, je sécurise.</span>
-    <span data-lang="en">Student in <strong style="color:var(--accent)">BTS SIO SISR</strong> at Lycée Georges Brassens, Rive-de-Gier. Passionate about networks, cybersecurity and systems. I build, configure, and secure.</span>
+    Étudiant en <strong style="color:var(--accent)">BTS SIO option SISR</strong> au lycée Georges Brassens, Rive-de-Gier. Passionné par les réseaux, la cybersécurité et les systèmes. Je construis, je configure, je sécurise.
   </p>
 
   <div class="hero-badges">
@@ -1411,9 +1408,9 @@ body.lang-en [data-lang="en"] { display: revert; }
   </div>
 
   <div class="hero-cta">
-    <a href="#veille" class="btn btn-primary"><span data-lang="fr">Voir mes projets</span><span data-lang="en">See my projects</span> <span>→</span></a>
-    <a href="#contact" class="btn btn-outline"><span data-lang="fr">Me contacter</span><span data-lang="en">Contact me</span></a>
-  <a href="CV.pdf" download="CV.pdf" class="btn btn-outline" style="border-color:var(--accent2);color:var(--accent2);"><span data-lang="fr">⬇ Télécharger mon CV</span><span data-lang="en">⬇ Download my CV</span></a>
+    <a href="#veille" class="btn btn-primary">Voir mes projets <span>→</span></a>
+    <a href="#contact" class="btn btn-outline">Me contacter</a>
+  <a href="CV.pdf" download="CV.pdf" class="btn btn-outline" style="border-color:var(--accent2);color:var(--accent2);">⬇ Télécharger mon CV</a>
   </div>
 
 
@@ -1423,7 +1420,7 @@ body.lang-en [data-lang="en"] { display: revert; }
 <section class="about" id="about">
   <div class="section-header">
     <span class="section-num">01</span>
-    <h2 class="section-title fade-in"><span data-lang="fr">À propos</span><span data-lang="en">About me</span></h2>
+    <h2 class="section-title fade-in">À propos</h2>
     <div class="section-line"></div>
   </div>
   <div class="about-grid">
@@ -1462,7 +1459,7 @@ body.lang-en [data-lang="en"] { display: revert; }
 <section id="skills">
   <div class="section-header">
     <span class="section-num">02</span>
-    <h2 class="section-title fade-in"><span data-lang="fr">Compétences</span><span data-lang="en">Skills</span></h2>
+    <h2 class="section-title fade-in">Compétences</h2>
     <div class="section-line"></div>
   </div>
   <div class="skills-grid">
@@ -1619,7 +1616,7 @@ body.lang-en [data-lang="en"] { display: revert; }
 <section class="veille" id="veille">
   <div class="section-header">
     <span class="section-num">03</span>
-    <h2 class="section-title fade-in"><span data-lang="fr">Veille Technologique</span><span data-lang="en">Technology Watch</span></h2>
+    <h2 class="section-title fade-in">Veille Technologique</h2>
     <div class="section-line"></div>
   </div>
 
@@ -1742,7 +1739,7 @@ body.lang-en [data-lang="en"] { display: revert; }
 <section id="formation">
   <div class="section-header">
     <span class="section-num">04</span>
-    <h2 class="section-title fade-in"><span data-lang="fr">Formation</span><span data-lang="en">Education</span></h2>
+    <h2 class="section-title fade-in">Formation</h2>
     <div class="section-line"></div>
   </div>
 
@@ -1822,7 +1819,7 @@ body.lang-en [data-lang="en"] { display: revert; }
 <section class="certifications" id="certifications">
   <div class="section-header">
     <span class="section-num">05</span>
-    <h2 class="section-title fade-in"><span data-lang="fr">Certifications</span><span data-lang="en">Certifications</span></h2>
+    <h2 class="section-title fade-in">Certifications</h2>
     <div class="section-line"></div>
   </div>
   <div class="cert-grid">
@@ -1912,7 +1909,7 @@ body.lang-en [data-lang="en"] { display: revert; }
 <section class="e5" id="e5">
   <div class="section-header">
     <span class="section-num">06</span>
-    <h2 class="section-title fade-in"><span data-lang="fr">Tableau de Synthèse E5</span><span data-lang="en">E5 Summary Table</span></h2>
+    <h2 class="section-title fade-in">Tableau de Synthèse E5</h2>
     <div class="section-line"></div>
   </div>
 
@@ -2197,7 +2194,7 @@ body.lang-en [data-lang="en"] { display: revert; }
 <section class="stage" id="stage">
   <div class="section-header">
     <span class="section-num">07</span>
-    <h2 class="section-title fade-in"><span data-lang="fr">Stage</span><span data-lang="en">Internship</span></h2>
+    <h2 class="section-title fade-in">Stage</h2>
     <div class="section-line"></div>
   </div>
   <div class="stage-wrapper">
@@ -2491,14 +2488,12 @@ body.lang-en [data-lang="en"] { display: revert; }
     });
   });
 
-  function setLang(lang) {
-    document.body.classList.toggle('lang-en', lang === 'en');
-    document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
-    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-    localStorage.setItem('lang', lang);
-  }
-  const savedLang = localStorage.getItem('lang');
-  if (savedLang === 'en') setLang('en');
+  const backBtn = document.getElementById('back-to-top');
+  window.addEventListener('scroll', () => {
+    if (window.innerWidth <= 600) {
+      backBtn.style.display = window.scrollY > 400 ? 'flex' : 'none';
+    }
+  });
 </script>
 </body>
 </html>
