@@ -200,19 +200,52 @@
   margin-top: 20px;
 }
 
- :root {
-    --bg: #0a0a0f;
-    --bg2: #111118;
-    --bg3: #1a1a26;
-    --accent: #00e5ff;
-    --accent2: #7c3aed;
-    --accent3: #f97316;
-    --text: #f0f0ff;
-    --text2: #9090b0;
-    --border: rgba(255,255,255,0.08);
-    --card: rgba(255,255,255,0.04);
-    --glow: 0 0 40px rgba(0,229,255,0.12);
-  }
+:root {
+  --bg: #0a0a0f;
+  --bg2: #111118;
+  --bg3: #1a1a26;
+  --accent: #00e5ff;
+  --accent2: #7c3aed;
+  --accent3: #f97316;
+  --text: #f0f0ff;
+  --text2: #9090b0;
+  --border: rgba(255,255,255,0.08);
+  --card: rgba(255,255,255,0.04);
+  --glow: 0 0 40px rgba(0,229,255,0.12);
+}
+body.light-mode {
+  --bg: #f4f4f8;
+  --bg2: #eaeaf0;
+  --bg3: #dddde8;
+  --accent: #0077aa;
+  --accent2: #6d28d9;
+  --accent3: #ea6f10;
+  --text: #0a0a1a;
+  --text2: #555570;
+  --border: rgba(0,0,0,0.1);
+  --card: rgba(0,0,0,0.04);
+  --glow: 0 0 40px rgba(0,119,170,0.1);
+}
+body.light-mode::before { opacity: 0.015; }
+body.light-mode nav {
+  background: linear-gradient(to bottom, rgba(244,244,248,0.95), transparent);
+}
+#theme-toggle {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text2);
+  font-size: 1rem;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-left: 1rem;
+  flex-shrink: 0;
+}
+#theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -1372,6 +1405,7 @@
     <li><a href="#stage">Stage</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
+  <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
   <button class="hamburger" id="hamburger" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
@@ -2426,6 +2460,19 @@
 </section>
 
 <script>
+  const themeBtn = document.getElementById('theme-toggle');
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'light') {
+    document.body.classList.add('light-mode');
+    themeBtn.textContent = '☀️';
+  }
+  themeBtn.addEventListener('click', () => {
+    document.body.classList.toggle('light-mode');
+    const isLight = document.body.classList.contains('light-mode');
+    themeBtn.textContent = isLight ? '☀️' : '🌙';
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+  });
+
   const cursor = document.getElementById('cursor');
   const ring = document.getElementById('cursorRing');
   let mx = 0, my = 0, rx = 0, ry = 0;
