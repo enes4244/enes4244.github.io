@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
 <title>Enes — Portfolio BTS SIO SISR</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230a0a0f'/><text y='.9em' font-size='80' x='10' fill='%2300e5ff' font-family='monospace' font-weight='bold'>EP</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
  
@@ -190,15 +191,7 @@
 
 /* Message succès */
 .success-message {
-  display: none;
-  padding: 20px;
-  background: rgba(0, 245, 255, 0.1);
-  border: 1px solid #00f5ff;
-  border-radius: 8px;
-  color: #00f5ff;
-  font-size: 1.1rem;
-  text-align: center;
-  margin-top: 20px;
+  display:none; margin-top:1rem; padding:1rem; border:1px solid var(--accent); color:var(--accent); font-size:0.78rem; text-align:center;
 }
 
 :root {
@@ -1078,6 +1071,9 @@ body.light-mode nav {
     .social-links { flex-wrap: wrap; justify-content: center; }
   }
   @media (max-width: 600px) {
+    .fade-in { transition: opacity 0.4s ease, transform 0.4s ease; }
+    * { -webkit-tap-highlight-color: transparent; }
+    .skill-card, .cert-card, .veille-card { transform: none !important; }
     .skills-grid { grid-template-columns: 1fr; }
     .about-stats { grid-template-columns: 1fr 1fr; }
     .hero-badges { gap: 0.5rem; }
