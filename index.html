@@ -114,8 +114,8 @@
   color: #00f5ff;
 }
 
-.contact-left p {
-  color: #aaaaaa;
+  .contact-left p {
+  color: var(--text2);
   font-size: 1.1rem;
   line-height: 1.6;
   margin-bottom: 30px;
@@ -215,10 +215,10 @@ body.light-mode {
   --accent: #0077aa;
   --accent2: #6d28d9;
   --accent3: #ea6f10;
-  --text: #0a0a1a;
-  --text2: #555570;
-  --border: rgba(0,0,0,0.1);
-  --card: rgba(0,0,0,0.04);
+  --text: #05050f;        /* ← plus sombre (était #0a0a1a) */
+  --text2: #333350;       /* ← plus sombre (était #555570) */
+  --border: rgba(0,0,0,0.15);  /* ← plus visible (était 0.1) */
+  --card: rgba(0,0,0,0.06);
   --glow: 0 0 40px rgba(0,119,170,0.1);
 }
 body.light-mode::before { opacity: 0.015; }
