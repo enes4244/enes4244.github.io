@@ -83,7 +83,7 @@
 }
  .contact-section {
   padding: 100px 5%;
-  background: #0a0a0a;
+  background: var(--bg);
 }
 
 .contact-container {
@@ -107,6 +107,7 @@
   font-size: 3.2rem;
   line-height: 1.1;
   margin-bottom: 25px;
+    color: var(--text);   /* ← ajoute cette ligne */
 }
 
 .highlight {
@@ -429,10 +430,11 @@ body.light-mode nav {
   .btn-primary::before {
     content: '';
     position: absolute; inset: 0;
-    background: #fff;
+    background: var(--accent);   /* ← change #fff en ça */
     transform: translateX(-101%);
     transition: transform 0.3s;
   }
+  .btn-primary:hover { color: #000; }
   .btn-primary:hover::before { transform: translateX(0); }
   .btn-primary span { position: relative; z-index: 1; }
   .btn-outline {
@@ -1440,7 +1442,7 @@ body.light-mode nav {
   </div>
 
   <div class="hero-cta">
-    <a href="#veille" class="btn btn-primary">Voir mes projets <span>→</span></a>
+    <a href="#veille" class="btn btn-primary"><span>Voir mes projets</span> <span>→</span></a>
     <a href="#contact" class="btn btn-outline">Me contacter</a>
   <a href="CV.pdf" download="CV.pdf" class="btn btn-outline" style="border-color:var(--accent2);color:var(--accent2);">⬇ Télécharger mon CV</a>
   </div>
