@@ -2262,18 +2262,16 @@ body.light-mode nav {
             <span class="mission-tag">SEMAINE 1 · DU 18/05 AU 22/05</span>
           </div>
         </div>
-        <p class="mission-desc">Première semaine de stage : dépannage imprimantes chez les clients, sécurisation et configuration du serveur NAS Synology, configuration de postes et gestion des sauvegardes.</p>
-        <ul class="mission-list">
-          <li>Installation de pilotes imprimantes et changement d'adresses IP (clients Cimaise Architecture, Peyret)</li>
-          <li>Mise à jour et sécurisation du serveur NAS Synology : VPN, pare-feu, A2F, Snapshot Replication</li>
-          <li>Configuration à distance des imprimantes (protocoles HTTP/HTTPS, SSL/TLS, activation service distant)</li>
-          <li>Installation d'un agent de sauvegarde automatique (transfert vers NAS tous les vendredis à 14h)</li>
-          <li>Mise en place des journaux de logs sur le NAS (connexions, fichiers, système, réseau)</li>
-          <li>Déballage et configuration de 2 PC portables neufs (Firefox, Chrome, Adobe, Avast, AnyDesk)</li>
-          <li>Dépannage imprimantes chez plusieurs clients (nettoyage/remplacement rouleaux de charge)</li>
-        </ul>
-        <div class="mission-tech">Synology NAS · AnyDesk · VPN · Pare-feu · A2F · SMB · HTTPS · DNS</div>
-      </div>
+        <p class="mission-desc">Première semaine de découverte du terrain : dépannages imprimantes chez les clients, sécurisation complète du serveur NAS Synology, configuration à distance des imprimantes, déploiement de postes neufs et mise en place des journaux de logs et sauvegardes automatiques.</p>
+  <ul class="mission-list">
+    <li><strong>Jour 1 — Installation pilotes & dépannages clients</strong> : installation du pilote KX pour une imprimante Olivetti Triumph Adler, changement d'adresse IP de l'imprimante. Dépannage chez Cimaise Architecture : résolution d'un problème d'impression depuis un seul PC et changement d'IP sur le traceur. Intervention en usine chez Peyret : installation de nouveaux pilotes KX et configuration de l'imprimante sur 4 machines (imprimante lente et non fonctionnelle).</li>
+    <li><strong>Jour 2 — Sécurisation du serveur NAS Synology</strong> : tentative de mise à niveau TPM 1.0 → 2.0 dans le BIOS pour préparer Windows 11. Renseignements et mise à jour complète du NAS Synology (DSM, paquets, agents). Sécurisation approfondie : VPN pour filtrer les connexions, pare-feu avec politique stricte (seul le port 5001 HTTPS/DSM autorisé, tous les autres bloqués), protection anti-brute force, A2F via OTP, et Snapshot Replication pour la sauvegarde et restauration des dossiers partagés. Visualisation de la BDD des imprimantes et apprentissage de la modification des paramètres réseau et services à distance.</li>
+    <li><strong>Jour 3 — Configuration à distance des imprimantes</strong> : configuration des propriétés d'imprimantes à distance via AnyDesk pour Gagniaire Ambulance et ASCL Chômeurs. Vérification et activation des protocoles HTTP/HTTPS, SSL/TLS. Changement des adresses IP de passerelle et DNS pour autoriser les mises à jour depuis la BDD. Activation du service à distance avec ajout de l'URL de la base de données et du code d'accès.</li>
+    <li><strong>Jour 4 — Audit NAS & dépannages imprimantes</strong> : analyse complète de la sécurisation du NAS (certificats SSL valides jusqu'en août 2026, compte admin par défaut désactivé, guest désactivé, 2FA active, mises à jour automatiques DSM et paquets activées, Security Advisor au vert). Installation de snapshots quotidiens sur tous les dossiers. Dépannages sur le terrain à Villars (agence immobilière et Loire Confection) : nettoyage et remplacement de rouleaux de charge sur des imprimantes laissant des traces. Diagnostic chez CARROT Montreynaud : identification d'un tambour jaune défectueux à remplacer. Configuration VPN avec nom de domaine prédéfini pour filtrer les connexions suspectes.</li>
+    <li><strong>Jour 5 — Déploiement postes & logs NAS</strong> : déballage et configuration de 2 PC portables neufs (Firefox, Chrome, Adobe Reader, Avast, AnyDesk). Installation d'un agent de sauvegarde automatique sur le NAS (transfert Documents → NAS chaque vendredi à 14h). Mise en place des journaux de logs complets : connexions (IP, tentatives échouées), fichiers (copies, suppressions, modifications), système (démarrages, mises à jour, erreurs disque) et réseau (blocages pare-feu). Configuration des notifications par mail pour toute activité suspecte sur le NAS. Dépannage chez Carnot Voyage : problème de scanner non résolu (mauvaise configuration réseau côté client empêchant la communication avec les postes).</li>
+  </ul>
+  <div class="mission-tech">NAS Synology · DSM · VPN · Pare-feu · A2F · OTP · Snapshot Replication · AnyDesk · HTTP/HTTPS · SSL/TLS · Pilotes KX · Docker · DNS · BIOS/UEFI</div>
+</div>
 
       <div class="mission-card fade-in">
         <div class="mission-header">
