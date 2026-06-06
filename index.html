@@ -2515,14 +2515,15 @@ body.light-mode nav {
             <span class="mission-tag">SEMAINE 3 · DU 01/06 AU 05/06</span>
           </div>
         </div>
-        <p class="mission-desc">Description de la semaine 3 — à compléter après le stage.</p>
+        <p class="mission-desc">Troisième semaine orientée self-hosting, administration système et sécurité : déploiement de services sur NAS Synology via Docker, supervision réseau avec PRTG et SNMP, audit de sécurité DSM, gestion du stockage, sécurisation du poste Windows 11 et maintenance matérielle.</p>
         <ul class="mission-list">
-          <li>Tâche / mission réalisée</li>
-          <li>Tâche / mission réalisée</li>
-          <li>Tâche / mission réalisée</li>
-          <li>Tâche / mission réalisée</li>
+          <li><strong>Jour 1 — Self-hosting NAS Synology</strong> : connexion SSH sur le port 2222, préparation d'une stack monitoring complète (Prometheus, Grafana, node_exporter, cAdvisor, Alertmanager). Tentative Pi-hole bloquée par les ports DSM occupés (53, 5353). Configuration d'AdGuard Home déjà actif sur le port 3001 : correction des règles pare-feu DSM, configuration du reverse proxy (HTTPS buro1.synology.me:443 → localhost:5001), audit Log Center (8503 entrées, aucune intrusion), vérification du certificat HTTPS valide jusqu'au 17/08/2026, création d'un fichier index.html de redirection via Web Station.</li>
+          <li><strong>Jour 2 — Maintenance matérielle & suivi infrastructure</strong> : démontage complet d'un PC client (disque dur, RAM DDR3/DDR4, clavier), analyse SMART via adaptateur SATA-USB, test mémoire avec MemTest86, mise à jour de l'inventaire matériel. Vérification SSH des services NAS après les manipulations de la veille : logs Docker, stabilité AdGuard Home, contrôle des ports réseau (53, 5353, 443, 5001). Configuration des listes de blocage AdGuard : AdGuard DNS Filter, AdAway, OISD Big, HaGeZi Multi PRO, HaGeZi Threat Intelligence Feeds.</li>
+          <li><strong>Jour 3 — Gestion stockage & sécurisation Windows 11</strong> : audit espace disque via SSH (df -h, du -sh), nettoyage Docker (docker system prune -a), création d'une arborescence /volume1/ (docker, backup, partage), configuration Synology Drive avec synchronisation bidirectionnelle. Côté Windows 11 : audit gpedit.msc (politiques mot de passe, UAC maximal, comptes invités désactivés), activation BitLocker avec clé sauvegardée sur NAS, audit pare-feu avancé wf.msc, surveillance des connexions réseau via netstat.</li>
+          <li><strong>Jour 4 — Audit performances NAS & supervision SNMP</strong> : monitoring SSH des ressources système (CPU, RAM, stockage, load average, réseau). Test de supervision SNMP avec Paessler SNMP Tester en SNMPv3 (auth SHA + chiffrement AES), SNMP Walk depuis OID 1.3 — agent SNMP validé. Tentative d'installation Office Pro 2019 non aboutie.</li>
+          <li><strong>Jour 5 — PRTG Network Monitor & sécurité DSM</strong> : déploiement PRTG avec 3 capteurs Synology (état système, Physical Disk 1, Logical Volume 1), configuration alertes email via smtp.gmail.com (port 587, SASL) pour le NAS, le routeur (192.168.1.11) et la Livebox (192.168.1.1). Correction de sécurité DSM : changement du port SSH 22 → 2222 suite à alerte du Conseiller de sécurité — statut "Bon" obtenu. Génération d'un rapport PRTG récapitulatif (disponibilité 100%, température disque 29°C). Création de concepts logo IA, synchronisation agenda iPhone ↔ Outlook.</li>
         </ul>
-        <div class="mission-tech">Outil · Outil · Outil</div>
+        <div class="mission-tech">NAS Synology · DSM · Docker · SSH · AdGuard Home · Prometheus · Grafana · PRTG · SNMP v3 · Reverse Proxy · BitLocker · Windows 11 · gpedit.msc · MemTest86 · Synology Drive</div>
       </div>
 
       <div class="mission-card fade-in">
