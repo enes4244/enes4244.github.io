@@ -2534,14 +2534,15 @@ body.light-mode nav {
             <span class="mission-tag">SEMAINE 4 · DU 08/06 AU 12/06</span>
           </div>
         </div>
-        <p class="mission-desc">Description de la semaine 4 — à compléter après le stage.</p>
+        <p class="mission-desc">Quatrième semaine axée sur l'administration réseau : reconfiguration du switch TP-Link, documentation de l'infrastructure, supervision du trafic, sécurisation Wi-Fi, et déploiement d'un nouveau photocopieur avec configuration scan réseau et email.</p>
         <ul class="mission-list">
-          <li>Tâche / mission réalisée</li>
-          <li>Tâche / mission réalisée</li>
-          <li>Tâche / mission réalisée</li>
-          <li>Tâche / mission réalisée</li>
+          <li><strong>Jour 1 — Configuration switch TP-Link T1600G-28TS</strong> : reconfiguration de l'adresse IP du switch de 192.168.0.1 vers 192.168.1.10 via l'interface web. Connexion directe poste/switch avec adaptateur USB/RJ45, modification de l'interface Vlan1, sauvegarde de la config. Réservation DHCP sur la Livebox (MAC 70:4F:57:37:6D:CD → 192.168.1.10). Tentative de mise à jour firmware V2 — firmware non disponible chez TP-Link pour cette version. Création d'un tableau Excel de tous les appareils du réseau (IP, masque, passerelle, DNS).</li>
+          <li><strong>Jour 2 — Schéma réseau & logs switch</strong> : réalisation d'un schéma réseau complet sur Draw.io après scan avec Advanced IP Scanner (Livebox → switch → NAS Synology, caméra Dahua, PC-BURO1, imprimante Kyocera, PC HP ; appareils Wi-Fi : iPad, iPhone). Vérification des logs switch : aucune intrusion détectée, mais instabilité sur le port Gi1/0/17 (alternances up/down) — câble identifié, équipement distant à déterminer. Configuration du réseau Wi-Fi invité sur la Livebox (WPA2, accès Internet uniquement, sans accès au réseau privé).</li>
+          <li><strong>Jour 3 — Analyse trafic & table d'adressage IP</strong> : consultation du Traffic Monitor du switch — port 1/0/24 (uplink Livebox) le plus actif, ports 1/0/21, 1/0/23 et 1/0/12 significatifs. Identification des équipements via la table MAC : port 1/0/23 → NAS Synology SERVB1, port 1/0/21 → caméra Dahua, port 1/0/12 → poste PROBOOK-SM. Création du tableau d'adressage IP complet et du diagramme réseau Draw.io avec toutes les interconnexions.</li>
+          <li><strong>Jour 4 — Inventaire réseau complet</strong> : collecte de toutes les adresses IP restantes pour compléter le tableau Excel (IP, MAC, modèles, masque, passerelle, DNS, statut). Recensement exhaustif de l'ensemble du parc réseau.</li>
+          <li><strong>Jour 5 — Déploiement photocopieur Olivetti & configuration scan</strong> : déballage du nouveau photocopieur Olivetti 2556. Résolution d'un problème de scan sur le nouveau PC DELL (Boîte aux lettres St-Étienne) : création d'un nouvel utilisateur scan pour 2 postes. Changement de signature sur la boîte mail Orange. Tests de scan sur les 2 postes. Configuration de l'imprimante Olivetti 3556 : installation pilote KX, création utilisateur SCAN, création dossier SCAN sur disque dur. Configuration via l'interface web du photocopieur : envoi scan vers dossier réseau (protocole SMB, IP du PC, identifiants Windows) — test de connexion OK. Mise en place également du scan par email.</li>
         </ul>
-        <div class="mission-tech">Outil · Outil · Outil</div>
+        <div class="mission-tech">Switch TP-Link T1600G-28TS · Advanced IP Scanner · Draw.io · Livebox · DHCP · Wi-Fi invité · WPA2 · SMB · Olivetti 2556/3556 · Pilotes KX · Excel · AnyDesk · DNS · VLAN</div>
       </div>
 
       <div class="mission-card fade-in">
