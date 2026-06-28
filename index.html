@@ -1590,6 +1590,95 @@ body.light-mode nav {
 .hero-cta    { opacity:0; transform:translateY(20px); animation: heroIn 0.7s 0.95s cubic-bezier(0.16,1,0.3,1) forwards; }
 @keyframes heroIn { to { opacity:1; transform:translateY(0); } }
 
+/* BADGE DISPONIBLE */
+.available-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: 1px solid rgba(0,229,255,0.3);
+  color: var(--accent);
+  padding: 0.4rem 1rem;
+  margin-bottom: 1.5rem;
+  background: rgba(0,229,255,0.06);
+}
+.available-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: #00ff88;
+  box-shadow: 0 0 8px #00ff88;
+  animation: pulseBadge 2s ease-in-out infinite;
+}
+@keyframes pulseBadge {
+  0%,100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+/* MATRIX CANVAS */
+#matrix-canvas {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  opacity: 0.04;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* TOOLTIPS TECHNOS */
+[data-tooltip] {
+  position: relative;
+  cursor: help;
+}
+[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  background: var(--bg3);
+  border: 1px solid var(--accent);
+  color: var(--text);
+  font-size: 0.65rem;
+  padding: 0.4rem 0.75rem;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s, transform 0.2s;
+  z-index: 999;
+  letter-spacing: 0.05em;
+}
+[data-tooltip]:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* COPY EMAIL */
+.copy-email-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 1px solid var(--border);
+  color: var(--text2);
+  background: none;
+  padding: 0.4rem 0.9rem;
+  cursor: pointer;
+  margin-left: 0.75rem;
+  transition: all 0.2s;
+}
+.copy-email-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.copy-email-btn.copied {
+  border-color: #00ff88;
+  color: #00ff88;
+}
+
 </style>
 <script src="https://web3forms.com/client/script.js" async defer></script>
 </head>
@@ -1634,11 +1723,16 @@ body.light-mode nav {
 
 <section class="hero">
   <canvas id="particles-canvas"></canvas>
+  <canvas id="matrix-canvas"></canvas>
   <div class="hero-tag" id="hero-tag-typing"></div>
   <h1>
     <span class="name-line">Enes</span>
     <span class="accent-line glitch" data-text="Parakazan">Parakazan</span>
   </h1>
+  <div class="available-badge">
+    <span class="available-dot"></span>
+    Disponible — Stage / Alternance 2026
+  </div>
 
   <p class="hero-desc">
     Étudiant en <strong style="color:var(--accent)">BTS SIO option SISR</strong> au lycée Georges Brassens, Rive-de-Gier. Passionné par les réseaux, la cybersécurité et les systèmes. Je construis, je configure, je sécurise.
@@ -2906,6 +3000,83 @@ document.querySelectorAll('.btn').forEach(btn => {
   });
   btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
 });
+
+// ── MATRIX RAIN ───────────────────────────────────────
+(function() {
+  const canvas = document.getElementById('matrix-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let W, H, cols, drops;
+  const chars = 'アイウエオカキクケコ01サシスセソタチツ0110テトナニヌネノハヒフヘホ';
+  function init() {
+    W = canvas.width = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+    cols = Math.floor(W / 16);
+    drops = Array(cols).fill(1);
+  }
+  init();
+  window.addEventListener('resize', init);
+  function draw() {
+    ctx.fillStyle = 'rgba(10,10,15,0.05)';
+    ctx.fillRect(0, 0, W, H);
+    ctx.fillStyle = '#00e5ff';
+    ctx.font = '13px monospace';
+    drops.forEach((y, i) => {
+      const char = chars[Math.floor(Math.random() * chars.length)];
+      ctx.fillText(char, i * 16, y * 16);
+      if (y * 16 > H && Math.random() > 0.975) drops[i] = 0;
+      drops[i]++;
+    });
+  }
+  setInterval(draw, 50);
+})();
+
+// ── TOOLTIPS TECH TAGS ────────────────────────────────
+const techTooltips = {
+  'SMB': 'Server Message Block — Protocole partage fichiers Windows',
+  'NAS': 'Network Attached Storage — Serveur de stockage réseau',
+  'VLAN': 'Virtual LAN — Segmentation logique du réseau',
+  'DHCP': 'Dynamic Host Configuration Protocol — Attribution automatique IP',
+  'DNS': 'Domain Name System — Résolution noms de domaine',
+  'SSH': 'Secure Shell — Accès distant chiffré',
+  'VPN': 'Virtual Private Network — Tunnel réseau sécurisé',
+  'SNMP': 'Simple Network Management Protocol — Supervision réseau',
+  'BitLocker': 'Chiffrement intégral du disque — Windows',
+  'PRTG': 'Outil de monitoring réseau et systèmes',
+  'Docker': 'Plateforme de conteneurisation d\'applications',
+  'GPO': 'Group Policy Object — Politiques de groupe Active Directory',
+  'CTF': 'Capture The Flag — Challenges cybersécurité',
+  'RGPD': 'Règlement Général sur la Protection des Données',
+  'OTP': 'One-Time Password — Code à usage unique (2FA)',
+  'ACL': 'Access Control List — Liste de contrôle d\'accès',
+  'OSPF': 'Open Shortest Path First — Protocole de routage dynamique',
+  'TCP/IP': 'Protocoles fondamentaux de communication Internet',
+};
+document.querySelectorAll('.mission-tech, .cert-tag, .tech-tag, .cert-tags .cert-tag').forEach(el => {
+  const text = el.textContent.trim();
+  Object.keys(techTooltips).forEach(key => {
+    if (text === key || text.includes(key)) {
+      el.setAttribute('data-tooltip', techTooltips[key]);
+    }
+  });
+});
+
+// ── COPY EMAIL ────────────────────────────────────────
+const emailLink = document.querySelector('a[href^="mailto:"]');
+if (emailLink) {
+  const email = emailLink.textContent.trim();
+  const btn = document.createElement('button');
+  btn.className = 'copy-email-btn';
+  btn.innerHTML = '⎘ Copier';
+  btn.onclick = () => {
+    navigator.clipboard.writeText(email).then(() => {
+      btn.textContent = '✓ Copié !';
+      btn.classList.add('copied');
+      setTimeout(() => { btn.innerHTML = '⎘ Copier'; btn.classList.remove('copied'); }, 2000);
+    });
+  };
+  emailLink.parentElement.appendChild(btn);
+}
 </script>
 </body>
 </html>
